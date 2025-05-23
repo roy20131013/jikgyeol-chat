@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>직결식 채팅 데모</title>
+  <style>
+    @font-face {
+      font-family: 'JikgyeolFont';
+      src: url('direct.ttf') format('truetype');
+    }
+
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .chat-output {
+      border: 1px solid #ccc;
+      padding: 15px;
+      font-size: 1.4em;
+      min-height: 60px;
+      background: #f9f9f9;
+    }
+
+    .jikgyeol-on {
+      font-family: 'JikgyeolFont', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>직결식 채팅 데모</h1>
+
+  <input type="text" id="chatInput" placeholder="영문자로 입력하세요 (예: rhkdlqfur)" />
+
+  <label>
+    <input type="checkbox" id="toggleFont" checked />
+    직결식 글꼴 보기 (한글처럼 보이게)
+  </label>
+
+  <div id="chatOutput" class="chat-output jikgyeol-on">여기에 메시지가 나타납니다.</div>
+
+  <script>
+    const input = document.getElementById("chatInput");
+    const output = document.getElementById("chatOutput");
+    const toggle = document.getElementById("toggleFont");
+
+    input.addEventListener("input", () => {
+      output.textContent = input.value;
+    });
+
+    toggle.addEventListener("change", () => {
+      output.classList.toggle("jikgyeol-on", toggle.checked);
+    });
+  </script>
+
+</body>
+</html>
